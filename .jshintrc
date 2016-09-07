@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "console": false,
+    "process": false,
+    "require": false,
+    "setTimeout": false
+  },
+  "esversion": 6,
+  "node": true
+}
