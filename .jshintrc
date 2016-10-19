@@ -5,6 +5,6 @@
         "require": false,
         "setTimeout": false
     },
-    "esversion": 7,
+    "esversion": 6,
     "node": true
 }
