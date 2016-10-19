@@ -27,7 +27,7 @@ var options = {
 
 let lese_verzeichnis = new Promise((resolve, reject) => {
     glob(config.filefilter, options)
-        .then(function(files) {
+        .then(files => {
             // files is an array of filenames.
             // If the `nonull` option is set, and nothing
             // was found, then files is ["**/*.js"]
@@ -36,8 +36,8 @@ let lese_verzeichnis = new Promise((resolve, reject) => {
             for (var i in files) {
                 console.log(files[i]);
             }
-            reject('stop it! I do not wait for the other function');
-            //resolve(files.length);
+            //reject('stop it! I do not wait for the other function');
+            resolve(files.length);
         });
 });
 
@@ -50,6 +50,18 @@ let myWait3Sec = new Promise((resolve, reject) => {
     }, 3000);
 });
 
+
+Promise.all([
+    glob(config.filefilter, options), myWait3Sec
+]).then(values => {
+    console.log(values); // [3, 1337, "foo"]
+    //let [anz_files, anz_sekunden] = values;
+    let files = values[0];
+    let anz_sekunden = values[1];
+    console.log(`alles fertig: anz_files = ${files.length} gelesen in ${anz_sekunden} Sekunden`);
+}).catch(
+    reason => console.log(reason)
+);
 
 Promise.all([lese_verzeichnis, myWait3Sec]).then(values => {
     console.log(values); // [3, 1337, "foo"]
