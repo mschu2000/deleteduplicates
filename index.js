@@ -25,7 +25,7 @@ var options = {
 
 
 
-let lese_verzeichnis = new Promise((resolve) => {
+let lese_verzeichnis = new Promise((resolve, reject) => {
     glob(config.filefilter, options)
         .then(function(files) {
             // files is an array of filenames.
@@ -36,11 +36,12 @@ let lese_verzeichnis = new Promise((resolve) => {
             for (var i in files) {
                 console.log(files[i]);
             }
-            resolve(files.length);
+            reject('stop it! I do not wait for the other function');
+            //resolve(files.length);
         });
 });
 
-let myWait3Sec = new Promise((resolve) => {
+let myWait3Sec = new Promise((resolve, reject) => {
     // Set a timeout for 3 seconds
     setTimeout(function() {
         // It's been 3 seconds, alert via callback
@@ -56,4 +57,6 @@ Promise.all([lese_verzeichnis, myWait3Sec]).then(values => {
     let anz_files = values[0];
     let anz_sekunden = values[1];
     console.log(`alles fertig: anz_files = ${anz_files} gelesen in ${anz_sekunden} Sekunden`);
-});
+}).catch(
+    reason => console.log(reason)
+);
