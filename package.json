@@ -12,6 +12,7 @@
   "dependencies": {
     "async": "^2.0.1",
     "glob": "^7.0.5",
+    "glob-promise": "^1.0.6",
     "hjson": "^2.0.5",
     "nconf": "^0.8.4"
   }
