@@ -1,11 +1,12 @@
 {
-  "proxy": {
-    // Der Proxy muss mit dieser URL angesprochen werden, damit wir raus können
-    "url": "http://yyvtrnod:2016Prod!PasswordIsSafe!@httpgate.power.inet:80/"
-  },
-  "dir": {
-    "candidates": "./candidates/",
-    "archive": "./archive/"
-  },
-  "filefilter": "*.txt"
+    "proxy": {
+        // Der Proxy muss mit dieser URL angesprochen werden, damit wir raus können
+        "url": "http://yyvtrnod:2016Prod!PasswordIsSafe!@httpgate.power.inet:80/"
+    },
+    "dir": {
+        "candidates": "./candidates/",
+        "archive": "./archive/",
+        "new": "./new/"
+    },
+    "filefilter": "*.txt"
 }
