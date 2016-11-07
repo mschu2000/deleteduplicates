@@ -1,20 +1,23 @@
 {
-  "name": "deleteduplicates",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "async": "^2.0.1",
-    "fs-promise": "^0.5.0",
-    "glob": "^7.0.5",
-    "glob-promise": "^1.0.6",
-    "hjson": "^2.0.5",
-    "nconf": "^0.8.4"
-  }
+    "name": "deleteduplicates",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "deleteduplicates": "./index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "async": "^2.0.1",
+        "fs-promise": "^0.5.0",
+        "glob": "^7.0.5",
+        "glob-promise": "^1.0.6",
+        "hjson": "^2.0.5",
+        "nconf": "^0.8.4"
+    }
 }

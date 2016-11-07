@@ -5,3 +5,5 @@ archive/
 candidates/
 new/
 apex_server_http_wss.js
+*.zip
+log*.*

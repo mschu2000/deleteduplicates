@@ -14,12 +14,13 @@ const config = nconf
     .file({ file: './config.json', format: require('hjson') })
     .get();
 
-console.log(`directories: ${config.dir.archive}, ${config.dir.candidates}`);
+console.log(`directories: ${config.DDUP_ARCHIVE}, ${config.DDUP_CANDIDATES}`);
+
 
 Promise.all([
-    glob(config.filefilter, { "cwd": config.dir.archive }),
-    glob(config.filefilter, { "cwd": config.dir.candidates }),
-    fsp.ensureDir(config.dir.new)
+    glob(config.DDUP_FILEFILTER, { "cwd": config.DDUP_ARCHIVE }),
+    glob(config.DDUP_FILEFILTER, { "cwd": config.DDUP_CANDIDATES }),
+    fsp.ensureDir(config.DDUP_NEW)
 ]).then(values => {
     console.log(values);
     let [candidatesFiles, archiveFiles] = values;
@@ -27,8 +28,8 @@ Promise.all([
     console.log("newFiles");
     console.log(newFiles);
     for (let newFile of newFiles) {
-        console.log("move " + config.dir.candidates + newFile + " to " + config.dir.new + newFile);
-        fsp.move(config.dir.candidates + newFile, config.dir.new + newFile );
+        console.log("move " + config.DDUP_CANDIDATES + newFile + " to " + config.DDUP_NEW + newFile);
+        fsp.move(config.DDUP_CANDIDATES + newFile, config.DDUP_NEW + newFile);
     }
     console.log(`alles fertig: ${archiveFiles.length} archive files und ${candidatesFiles.length} candidates und davon sind ${newFiles.length} Dateien neu`);
 }).catch(
