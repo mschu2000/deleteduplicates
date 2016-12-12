@@ -23,8 +23,8 @@ Promise.all([
     fsp.ensureDir(config.DDUP_NEW)
 ]).then(values => {
     console.log(values);
-    let [candidatesFiles, archiveFiles] = values;
-    let newFiles = archiveFiles.filter(x => !candidatesFiles.includes(x));
+    let [archiveFiles, candidatesFiles] = values;
+    let newFiles = candidatesFiles.filter(x => !archiveFiles.includes(x));
     console.log("newFiles");
     console.log(newFiles);
     for (let newFile of newFiles) {
